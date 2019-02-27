@@ -6,9 +6,11 @@ public class TowerSc : MonoBehaviour
 {
     [SerializeField] private float range;
     [SerializeField] private Transform turret;
-
+    [SerializeField] private float attackSpeed;
+    [SerializeField] private bulletSc bullet;
 
     private Collider2D target;
+    private float currentTime;
     private float pv = 100;
     private  Vector2 towerPosition;
 
@@ -16,6 +18,7 @@ public class TowerSc : MonoBehaviour
 
     // Start is called before the first frame update
     void Start(){
+        currentTime = 0;
         towerPosition = new Vector2(transform.position.x, transform.position.y);
     }
 
@@ -99,6 +102,15 @@ public class TowerSc : MonoBehaviour
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         turret.rotation = Quaternion.Lerp(turret.rotation, Quaternion.AngleAxis(angle, Vector3.forward),0.1f);
     }
+
+    private void fire()
+    {
+        currentTime = currentTime - attackSpeed;
+        bulletSc bulletT = GameObject.Instantiate(bullet);
+        bulletT.transform.position = turret.position;
+        bullet.Init(target.transform);
+
+    }
     // Update is called once per frame
     void Update()
     {
@@ -111,17 +123,24 @@ public class TowerSc : MonoBehaviour
         //else
         //{
 
-            if(target == null || !IsInRange(target.transform))
-                getEnemyInRange();
+        if(target == null || !IsInRange(target.transform))
+            getEnemyInRange();
+        
+        currentTime += Time.deltaTime;
 
-            if(target != null)
+        if(target != null)
+        {
+            followTarget();
+            if(currentTime >= attackSpeed)
             {
-                followTarget();
+                fire();
             }
-
         }
-
-    //}
+        else if(currentTime >= attackSpeed)
+        {
+            currentTime = attackSpeed;
+        }     
+    }
 }
 
 
