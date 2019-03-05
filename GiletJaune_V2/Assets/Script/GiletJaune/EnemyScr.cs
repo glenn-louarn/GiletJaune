@@ -86,4 +86,14 @@ public class EnemyScr : MonoBehaviour
         pv -= degat;
         return pv <= 0;
     }
+
+    void OnTrigerEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "bullet")
+        {
+            return;
+        }
+        GameObject.Destroy(collision.gameObject);
+        //TODO REMOVE LIFE AND ANIMATION
+    }
 }

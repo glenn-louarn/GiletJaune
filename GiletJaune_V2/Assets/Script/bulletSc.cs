@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class bulletSc : MonoBehaviour
 {
-    private Transform target;
+    public Transform target;
+    private float speed = 7f;
     // Start is called before the first frame update
-   public void Init(Transform target)
+   public void Init(Transform ptarget)
     {
-        this.target = target;
+        this.target = ptarget;
+        Debug.Log("je suis init " + target.position);
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = transform.position + (target.position - transform.position) * Time.deltaTime;
+        Debug.Log("target position " + target.position);
+        transform.position = transform.position + (target.position - transform.position) * Time.deltaTime* speed;
     }
+
+   
 }

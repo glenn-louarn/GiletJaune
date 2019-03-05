@@ -221,6 +221,17 @@ PrefabInstance:
       propertyPath: degatMonstre
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 2648642527138897407, guid: 6fe91fffb4ddfe34fb8d32c7a68c9dc2,
+        type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 893719903422773501, guid: edd99a92652fcfa4eb57b7c6f7e839aa,
+        type: 3}
+    - target: {fileID: 2648642527138897407, guid: 6fe91fffb4ddfe34fb8d32c7a68c9dc2,
+        type: 3}
+      propertyPath: attackSpeed
+      value: 1.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fe91fffb4ddfe34fb8d32c7a68c9dc2, type: 3}
 --- !u!1 &519420028
