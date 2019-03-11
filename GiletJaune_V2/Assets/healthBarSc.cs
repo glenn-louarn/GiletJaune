@@ -7,6 +7,7 @@ public class healthBarSc : MonoBehaviour
     public float maxHealth = 100;
     public float currentHealth = 100;
     public float degatMonstre = 0.5f;
+    private TowerSc towerSc;
     private float originalScale;
 
 
@@ -22,7 +23,7 @@ public class healthBarSc : MonoBehaviour
         Vector3 tmpScale = gameObject.transform.localScale;
         if (currentHealth >= 0)
         {
-            currentHealth -= degatMonstre;
+            currentHealth = towerSc.;
             tmpScale.x = currentHealth / maxHealth * originalScale;
         }
         gameObject.transform.localScale = tmpScale;

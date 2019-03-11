@@ -8,12 +8,11 @@ public class TowerSc : MonoBehaviour
     [SerializeField] private Transform turret;
     [SerializeField] private float attackSpeed;
     [SerializeField] private bulletSc bullet;
+    [SerializeField] private float pv = 100;
 
     private Collider2D target;
     private float currentTime;
-    private float pv = 100;
     private  Vector2 towerPosition;
-
     private const float TURRET_ROTATION_SPEED = 1f;
 
     // Start is called before the first frame update
