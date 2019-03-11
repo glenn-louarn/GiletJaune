@@ -67,17 +67,23 @@ public class TowerSc : MonoBehaviour
         //        }
         //    }
         int i = 0;
-
-        while (i < enemies.Length && i != -2)
+        if (enemies.Length < 0)
         {
-            if (enemies[i].gameObject.tag != "Targetable")
+            target = null;
+        }
+        else
+        {
+            while (i < enemies.Length && i != -2)
             {
-                i++;
-            }
-            else
-            {
-                target = enemies[i];
-                i = -2;
+                if (enemies[i].gameObject.tag != "Targetable")
+                {
+                    i++;
+                }
+                else
+                {
+                    target = enemies[i];
+                    i = -2;
+                }
             }
         }
 
@@ -108,6 +114,7 @@ public class TowerSc : MonoBehaviour
         bulletSc bulletT = GameObject.Instantiate(bullet);
         bulletT.transform.position = turret.position;
         bullet.Init(target.transform);
+        Debug.Log("FIREEE!!!! " + target.transform.position);
 
     }
     // Update is called once per frame
@@ -127,6 +134,7 @@ public class TowerSc : MonoBehaviour
         
         currentTime += Time.deltaTime;
 
+        Debug.Log("Voici la target " + target);
         if(target != null)
         {
             followTarget();
@@ -137,7 +145,7 @@ public class TowerSc : MonoBehaviour
         }
         else if(currentTime >= attackSpeed)
         {
-            currentTime = attackSpeed;
+            currentTime = 0f;
         }     
     }
 }

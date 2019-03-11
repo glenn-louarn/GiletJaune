@@ -398,6 +398,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 3
   turret: {fileID: 2648642526119410001}
+  attackSpeed: 0
+  bullet: {fileID: 0}
 --- !u!61 &2648642527138897393
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -516,3 +518,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88cc1f7349463d44dab999c1efc9c8d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 100
+  degatMonstre: 0.5
