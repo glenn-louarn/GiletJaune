@@ -9,6 +9,7 @@ public class EnemyBehavior : MonoBehaviour {
 	private float max_life;
 	private float current_life;
 	private float speed;
+    private bool stop;
 	[NonSerialized] public int gold;
 	[NonSerialized] public int value;
 
@@ -27,11 +28,20 @@ public class EnemyBehavior : MonoBehaviour {
 		speed = enemy.move_speed;
 		gold = enemy.gold;
 		value = enemy.value;
+        stop = false;
 	}
 
 	void Update () {
-		transform.position = transform.position + direction * speed * Time.deltaTime;
+        if (!stop)
+        {
+            transform.position = transform.position + direction * speed * Time.deltaTime;
+        }
 	}
+
+    public void arret()
+    {
+        stop = true;
+    }
 
 	public void ChangeDirection(DirectionEnum dir) {
 		switch (dir) {
