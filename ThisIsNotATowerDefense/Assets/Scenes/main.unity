@@ -2735,7 +2735,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gold_text: {fileID: 1049390456}
   lives_text: {fileID: 1729493397}
-  starting_gold: 500
+  starting_gold: 10
   starting_lives: 25
 --- !u!4 &1880134966
 Transform:
