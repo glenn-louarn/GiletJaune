@@ -66,9 +66,12 @@ public class Player : MonoBehaviour {
 
 			if (Input.GetMouseButtonDown(0)) {
 				if (gold >= selected_tower.cost) {
-					RemoveGold(selected_tower.cost);
-					selected_tower.Place();
-					selected_tower = null;
+                    if (selected_tower.peutEtrePause())
+                    {
+                        RemoveGold(selected_tower.cost);
+                        selected_tower.Place();
+                        selected_tower = null;
+                    }
 				} else {
 					// TODO: DISPLAY "NOT ENOUGH MONEY"
 				}

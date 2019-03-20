@@ -8,8 +8,9 @@ public class TowerButtonBehavior : MonoBehaviour {
 	[SerializeField] private Tower tower;
 	[SerializeField] private Transform infos;
 	[SerializeField] private TowerBehavior selected_tower;
+    [SerializeField] private MatricePlateau mat;
 
-	private Player player;
+    private Player player;
 	private Button button;
 	private bool mouse_in;
 
@@ -25,8 +26,8 @@ public class TowerButtonBehavior : MonoBehaviour {
 
 	void OnClick() {
 		TowerBehavior t = GameObject.Instantiate(selected_tower);
-		t.Init(tower, true);
-
+		t.Init(tower, mat, true);
+        Debug.Log("Je clque sur le btn");
 		player.SetSelectedTower(null);
 		player.SetSelectedTower(t);
 	}

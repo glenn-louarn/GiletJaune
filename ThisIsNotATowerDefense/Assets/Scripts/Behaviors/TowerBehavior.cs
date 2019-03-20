@@ -24,13 +24,17 @@ public class TowerBehavior : MonoBehaviour {
 	[SerializeField] private GameObject tower_range;
 
 
-	private Collider2D target;
+    private MatricePlateau mat;
+
+
+    private Collider2D target;
 	private float current_time = 0f;
 
 	// CONSTANTS
 	private const float TURRET_ROTATION_SPEED = 1f;
 
-	public void Init(Tower tower, bool placing = false) {
+	public void Init(Tower tower, MatricePlateau pMat, bool placing = false) {
+        this.mat = pMat;
 		mouse_collider = GetComponent<BoxCollider2D>();
 
 		SpriteRenderer base_renderer = tower_base.GetComponent<SpriteRenderer>();
@@ -52,14 +56,45 @@ public class TowerBehavior : MonoBehaviour {
 		this.placing = placing;
 		tower_range.transform.localScale = new Vector3(tower.range * 2f, tower.range * 2f, 0f);
 		tower_range.SetActive(placing);
+        
 	}
+
+    private float placement(float coord)
+    {
+        if (coord < 0)
+        {
+            return (coord - (coord % 1)) - 0.5f;
+        }
+        return (coord - (coord % 1))  + 0.5f;
+    }
 
 	private bool IsInRange(Transform point) {
 		return Vector3.Distance(transform.position, point.position) <= range;
 	}
 
 	private void GetEnemyInRange() {
-		target = Physics2D.OverlapCircle(transform.position, range);
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, range);
+        int i = 0;
+        if (enemies.Length < 0)
+        {
+            target = null;
+        }
+        else
+        {
+            while (i < enemies.Length && i != -2)
+            {
+                if (enemies[i].gameObject.tag != "Targetable")
+                {
+                    i++;
+                }
+                else
+                {
+                    target = enemies[i];
+                    i = -2;
+                }
+            }
+        }
+       // target = Physics2D.OverlapCircle(transform.position, range);
 	}
 
 	private void FollowTarget() {
@@ -79,11 +114,14 @@ public class TowerBehavior : MonoBehaviour {
 		bullet.transform.position = tower_turret.transform.position;
 		bullet.Init(projectile, target.transform, damage);
 	}
+    
 
 	// Update is called once per frame
 	void Update () {
-		if (!placing) {
-			if (target == null || !IsInRange(target.transform))
+        
+        if (!placing)
+        {
+            if (target == null || !IsInRange(target.transform))
 				GetEnemyInRange();
 
 			current_time += Time.deltaTime;
@@ -96,16 +134,21 @@ public class TowerBehavior : MonoBehaviour {
 				current_time = attack_speed - ready_time;
 			}
 
-			if (Input.GetMouseButtonDown(0)) {
-				if (!selected && IsMouseIn()) {
-					selected = true;
-					tower_range.SetActive(true);
-				} else if (selected) {
+			if (Input.GetMouseButtonDown(0)){
+				if (!selected && IsMouseIn())
+                {
+                        selected = true;
+                        tower_range.SetActive(true);
+                        gameObject.transform.position = new Vector3(placement(gameObject.transform.position.x), placement(gameObject.transform.position.y), 0);
+                        Debug.Log("je pose la tour a la position " + gameObject.transform.position);
+                                            
+                }
+                else if (selected) {
 					selected = false;
 					tower_range.SetActive(false);
 				}
-			}
-		}
+            }
+        }
 	}
 
 	private bool IsMouseIn() {
@@ -113,9 +156,15 @@ public class TowerBehavior : MonoBehaviour {
 		return mouse_collider.bounds.Contains(new Vector3(mouse.x, mouse.y, 0f));
 	}
 
-	public void Place() {
+    public bool peutEtrePause()
+    {
+        return mat.ajoutTour(gameObject.transform.position.y, gameObject.transform.position.x);
+    }
+
+
+    public void Place() {
 		placing = false;
 		selected = false;
 		tower_range.SetActive(false);
-	}
+        }
 }
