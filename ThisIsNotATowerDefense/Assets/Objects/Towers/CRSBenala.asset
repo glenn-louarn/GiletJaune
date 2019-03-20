@@ -3,16 +3,17 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2570f3f89da62c64f9885a932285f2d2, type: 3}
-  m_Name: AdvancedTower
+  m_Name: CRSBenala
   m_EditorClassIdentifier: 
-  tower_name: Advanced Tower
-  description: More powerful that basic tower.
+  tower_name: CRS benala
+  description: "CRS \xE9nerv\xE9"
   damage: 3
   range: 3
   attack_speed: 0.75
@@ -25,4 +26,4 @@ MonoBehaviour:
   turret_color: {r: 0.5882353, g: 0.5882353, b: 0.5882353, a: 1}
   projectile: {fileID: 11400000, guid: 78cbb2ae0478a1a499b8eea00548365b, type: 2}
   projectile_template: {fileID: 114150301673625108, guid: 115640a66cde11b4d904bcd7fcc95165,
-    type: 2}
+    type: 3}

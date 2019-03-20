@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -13,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 11400000, guid: ec3f627ecc97d4b45ae812a194989848, type: 2}
   enemy_template: {fileID: 114972011070268338, guid: 47c1fb7e164dfb24897b4695b5c1a6fb,
-    type: 2}
-  enemy_count: 10
-  enemy_interval: 1
+    type: 3}
+  enemy_count: 3
+  enemy_interval: 2
