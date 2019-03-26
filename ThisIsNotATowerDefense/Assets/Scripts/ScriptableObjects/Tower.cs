@@ -10,6 +10,7 @@ public class Tower : ScriptableObject {
 
 	public int damage;
 	public float range;
+    public int pv;
 	public float attack_speed;
 	public float ready_time;
 	public int cost;

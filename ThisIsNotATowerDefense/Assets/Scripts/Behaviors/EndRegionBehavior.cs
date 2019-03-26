@@ -21,5 +21,6 @@ public class EndRegionBehavior : MonoBehaviour {
 
 		player.RemoveLives(enemy.value);
 		GameObject.Destroy(col.gameObject);
+        Debug.Log("je detruit le gilet jaune");
 	}
 }

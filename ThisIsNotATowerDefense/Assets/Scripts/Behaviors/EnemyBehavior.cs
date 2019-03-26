@@ -9,7 +9,11 @@ public class EnemyBehavior : MonoBehaviour {
 	private float max_life;
 	private float current_life;
 	private float speed;
+    private int degat;
+    private float attack_speed;
+    private float current_Time = 0.0f;
     private bool stop;
+    private TowerBehavior target;
 	[NonSerialized] public int gold;
 	[NonSerialized] public int value;
 
@@ -24,6 +28,8 @@ public class EnemyBehavior : MonoBehaviour {
 		sprite_renderer.color = enemy.color;
 
 		max_life = enemy.life;
+        degat = enemy.degat;
+        attack_speed = enemy.attaque_Speed;
 		current_life = max_life;
 		speed = enemy.move_speed;
 		gold = enemy.gold;
@@ -36,10 +42,31 @@ public class EnemyBehavior : MonoBehaviour {
         {
             transform.position = transform.position + direction * speed * Time.deltaTime;
         }
+        else if(target != null)
+        {
+            current_Time += Time.deltaTime;
+            if (current_Time >= attack_speed)
+            {
+                target.attaque(this.degat);
+                current_Time = 0.0f;
+                if (target.IsDead())
+                {
+                    GameObject.Destroy(target.gameObject);
+                    target = null;
+                    stop = false;
+                }
+            }
+
+        }
+        else
+        {
+            stop = false;
+        }
 	}
 
-    public void arret()
+    public void arret(TowerBehavior targ)
     {
+        this.target = targ;
         stop = true;
     }
 
@@ -66,10 +93,14 @@ public class EnemyBehavior : MonoBehaviour {
 		float health_ratio = current_life / (float)max_life;
 	
 		life_bar.localScale = new Vector3(health_ratio, 0.1f, 0f);
-		life_bar.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.red, Color.green, health_ratio);
 	}
 
 	public bool IsDead() {
 		return current_life <= 0;
 	}
+
 }
+
+//Fin de game
+//Equilibre argent degat pv et autre ............
+//annonce fin de partie

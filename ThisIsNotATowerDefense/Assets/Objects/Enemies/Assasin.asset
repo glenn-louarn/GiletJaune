@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99abb756587392144ae46340af1a72d7, type: 3}
   m_Name: Assasin
   m_EditorClassIdentifier: 
-  life: 10
-  move_speed: 1.8
+  life: 2
+  degat: 2
+  attaque_Speed: 1
+  move_speed: 0.5
   sprite: {fileID: 21300000, guid: 072181ad15793474ab1b40875bf2a553, type: 3}
   size: 0.55
   color: {r: 0.52205884, g: 0.38002813, b: 0.38002813, a: 1}

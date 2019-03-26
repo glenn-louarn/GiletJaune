@@ -27,11 +27,11 @@ public class Player : MonoBehaviour {
 	}
 
 	private void UpdateGoldText() {
-		gold_text.text = "Gold: " + gold;
+		gold_text.text = "Argent: " + gold;
 	}
 
 	private void UpdateLivesText() {
-		lives_text.text = "Lives left: " + lives;
+		lives_text.text = "Vie: " + lives;
 	}
 
 	public void AddGold(int amount) {

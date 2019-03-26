@@ -16,6 +16,7 @@ MonoBehaviour:
   description: crs normal
   damage: 1
   range: 2.5
+  pv: 4
   attack_speed: 0.8
   ready_time: 0.3
   cost: 5

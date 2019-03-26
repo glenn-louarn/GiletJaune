@@ -24,7 +24,7 @@ public class EnemySpawnerBehavior : MonoBehaviour {
 	}
 
 	private void UpdateWaveText() {
-		wave_text.text = "Wave: " + (current_wave + 1);
+		wave_text.text = "Vague: " + (current_wave + 1);
 	}
 
 	private void SpawnEnemy() {

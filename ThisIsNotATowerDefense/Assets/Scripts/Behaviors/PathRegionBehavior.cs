@@ -14,7 +14,7 @@ public class PathRegionBehavior : MonoBehaviour {
 
 		if (enemy == null)
 			return;
-        enemy.arret();
+       // enemy.arret();
 		//enemy.ChangeDirection(target_direction);
 	}
 }

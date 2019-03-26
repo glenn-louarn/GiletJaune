@@ -7,6 +7,7 @@ TagManager:
   - Targetable
   - Projectile
   - PathCollider
+  - unTargetable
   layers:
   - Default
   - TransparentFX

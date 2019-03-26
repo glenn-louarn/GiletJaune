@@ -16,6 +16,7 @@ MonoBehaviour:
   description: CRS rapide
   damage: 1
   range: 2.3
+  pv: 10
   attack_speed: 0.6
   ready_time: 0.1
   cost: 8

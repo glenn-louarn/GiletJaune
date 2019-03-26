@@ -27,7 +27,6 @@ public class TowerButtonBehavior : MonoBehaviour {
 	void OnClick() {
 		TowerBehavior t = GameObject.Instantiate(selected_tower);
 		t.Init(tower, mat, true);
-        Debug.Log("Je clque sur le btn");
 		player.SetSelectedTower(null);
 		player.SetSelectedTower(t);
 	}
@@ -43,9 +42,9 @@ public class TowerButtonBehavior : MonoBehaviour {
 		infos.gameObject.SetActive(true);
 
 		GameObject.Find("TowerNameText").GetComponent<Text>().text = tower.tower_name;
-		GameObject.Find("CostText").GetComponent<Text>().text = "Cost: " + tower.cost;
-		GameObject.Find("DamageText").GetComponent<Text>().text = "Damage: " + tower.damage;
-		GameObject.Find("AttackSpeedText").GetComponent<Text>().text = "Attack Speed: " + tower.attack_speed;
+		GameObject.Find("CostText").GetComponent<Text>().text = "Cout: " + tower.cost;
+		GameObject.Find("DamageText").GetComponent<Text>().text = "Dégât: " + tower.damage;
+		GameObject.Find("AttackSpeedText").GetComponent<Text>().text = "Vitesse Attaque: " + tower.attack_speed;
 		GameObject.Find("InfoText").GetComponent<Text>().text = "Info: \n" + tower.description;
 		// TODO: SET "INFOS" TEXT
 	}

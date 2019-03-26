@@ -16,6 +16,7 @@ MonoBehaviour:
   description: "CRS \xE9nerv\xE9"
   damage: 3
   range: 3
+  pv: 8
   attack_speed: 0.75
   ready_time: 0.3
   cost: 12

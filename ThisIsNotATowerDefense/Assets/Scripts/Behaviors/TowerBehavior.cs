@@ -10,7 +10,9 @@ public class TowerBehavior : MonoBehaviour {
 	private float range;
 	private float attack_speed;
 	private float ready_time;
-	[NonSerialized] public int cost;
+    private int pv;
+    private int maxPv;
+    [NonSerialized] public int cost;
 
 	private Projectile projectile;
 	private ProjectileBehavior projectile_template;
@@ -22,6 +24,7 @@ public class TowerBehavior : MonoBehaviour {
 	[SerializeField] private GameObject tower_base;
 	[SerializeField] private GameObject tower_turret;
 	[SerializeField] private GameObject tower_range;
+    [SerializeField] private Transform life_bar;
 
 
     private MatricePlateau mat;
@@ -46,7 +49,9 @@ public class TowerBehavior : MonoBehaviour {
 
 		damage = tower.damage;
 		range = tower.range;
-		attack_speed = tower.attack_speed;
+        pv = tower.pv;
+        maxPv = pv;
+        attack_speed = tower.attack_speed;
 		ready_time = tower.ready_time;
 		cost = tower.cost;
 
@@ -118,7 +123,6 @@ public class TowerBehavior : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        
         if (!placing)
         {
             if (target == null || !IsInRange(target.transform))
@@ -140,18 +144,33 @@ public class TowerBehavior : MonoBehaviour {
                         selected = true;
                         tower_range.SetActive(true);
                         gameObject.transform.position = new Vector3(placement(gameObject.transform.position.x), placement(gameObject.transform.position.y), 0);
-                        Debug.Log("je pose la tour a la position " + gameObject.transform.position);
-                                            
+                      //  Debug.Log("je pose la tour a la position " + gameObject.transform.position);                                            
                 }
                 else if (selected) {
 					selected = false;
 					tower_range.SetActive(false);
 				}
             }
+            
         }
-	}
+    }
 
-	private bool IsMouseIn() {
+    public bool IsDead()
+    {
+        if (this.pv <= 0)
+        {
+            destructionTour();
+            return true;
+        }
+        return false;
+    }
+
+    private void destructionTour()
+    {
+        mat.suppresionTour(gameObject.transform.position.y, gameObject.transform.position.x);
+    }
+
+    private bool IsMouseIn() {
 		Vector3 mouse = GameObject.FindObjectOfType<Camera>().ScreenToWorldPoint(Input.mousePosition);
 		return mouse_collider.bounds.Contains(new Vector3(mouse.x, mouse.y, 0f));
 	}
@@ -167,4 +186,30 @@ public class TowerBehavior : MonoBehaviour {
 		selected = false;
 		tower_range.SetActive(false);
         }
+
+    public void attaque(int degat)
+    {
+        this.pv -= degat;
+
+        float health_ratio = pv / (float)maxPv;
+
+        life_bar.localScale = new Vector3(health_ratio, 0.1f, 0f);
+        life_bar.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.red, Color.green, health_ratio);
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (!placing)
+        {
+            if (col.gameObject.tag != "PathCollider")
+                return;
+
+            EnemyBehavior enemy = col.gameObject.GetComponentInParent<EnemyBehavior>();
+
+            if (enemy == null)
+                return;
+            enemy.arret(this);
+        }
+        //enemy.ChangeDirection(target_direction);
+    }
 }
