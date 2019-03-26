@@ -11,7 +11,7 @@ public class EndRegionBehavior : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {
-		if (col.gameObject.tag != "PathCollider")
+		if (col.gameObject.tag != "Targetable")
 			return;
 
 		EnemyBehavior enemy = col.gameObject.GetComponentInParent<EnemyBehavior>();
@@ -21,6 +21,5 @@ public class EndRegionBehavior : MonoBehaviour {
 
 		player.RemoveLives(enemy.value);
 		GameObject.Destroy(col.gameObject);
-        Debug.Log("je detruit le gilet jaune");
 	}
 }

@@ -27,7 +27,7 @@ public class Player : MonoBehaviour {
 	}
 
 	private void UpdateGoldText() {
-		gold_text.text = "Argent: " + gold;
+		gold_text.text = "Or: " + gold;
 	}
 
 	private void UpdateLivesText() {
