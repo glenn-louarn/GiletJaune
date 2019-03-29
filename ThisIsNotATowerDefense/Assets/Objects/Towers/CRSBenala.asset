@@ -19,7 +19,7 @@ MonoBehaviour:
   pv: 12
   attack_speed: 0.75
   ready_time: 0.3
-  cost: 12
+  cost: 20
   base_sprite: {fileID: 21300000, guid: 02bc984ddc1354c4cb450bc36942f754, type: 3}
   base_color: {r: 0.58823526, g: 0.58823526, b: 0.58823526, a: 1}
   freezeRotation: 0
