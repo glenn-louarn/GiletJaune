@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Assasin
   m_EditorClassIdentifier: 
   life: 2
-  degat: 2
+  degat: 4
   attaque_Speed: 1
-  move_speed: 0.5
+  move_speed: 0.8
   sprite: {fileID: 21300000, guid: 072181ad15793474ab1b40875bf2a553, type: 3}
   size: 0.55
   color: {r: 0.52205884, g: 0.38002813, b: 0.38002813, a: 1}
-  gold: 4
+  gold: 2
   value: 1
