@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2570f3f89da62c64f9885a932285f2d2, type: 3}
   m_Name: CRSBenala
   m_EditorClassIdentifier: 
-  tower_name: CRS benala
-  description: "CRS \xE9nerv\xE9"
+  tower_name: Benala
+  description: "Le pr\xE9sident lui a dit qu'il aurait une prime s'il tape plus fort"
   damage: 3
   range: 3
-  pv: 8
+  pv: 12
   attack_speed: 0.75
   ready_time: 0.3
   cost: 12

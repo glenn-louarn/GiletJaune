@@ -9,6 +9,7 @@ public class MainMenu_sc : MonoBehaviour
     {
         SceneManager.LoadScene("Main");
     }
+<<<<<<< HEAD
 
 
     public void quitGame()
@@ -22,3 +23,6 @@ public class MainMenu_sc : MonoBehaviour
     }
 }
 
+=======
+}
+>>>>>>> e4e538aafa82af2d87ce1b77f50c0edbc8acf098

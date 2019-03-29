@@ -10,22 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2570f3f89da62c64f9885a932285f2d2, type: 3}
-  m_Name: CRS
+  m_Name: CRSMur
   m_EditorClassIdentifier: 
-  tower_name: CRS
-  description: "\xC7a fait maintenant 5 mois qu'il d\xE9fend l'Elys\xE9e il est donc
-    un peu \xE9puis\xE9e"
-  damage: 2
-  range: 2.5
-  pv: 12
-  attack_speed: 0.8
-  ready_time: 0.3
-  cost: 5
+  tower_name: Bouclier
+  description: "Grace \xE0 son bouclier il peut stopper les gilets jaunes"
+  damage: 0
+  range: 0
+  pv: 40
+  attack_speed: 0
+  ready_time: 0
+  cost: 8
   base_sprite: {fileID: 21300000, guid: 02bc984ddc1354c4cb450bc36942f754, type: 3}
-  base_color: {r: 1, g: 1, b: 1, a: 1}
+  base_color: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 1}
   freezeRotation: 0
-  turret_sprite: {fileID: 21300002, guid: 02bc984ddc1354c4cb450bc36942f754, type: 3}
-  turret_color: {r: 1, g: 1, b: 1, a: 1}
+  turret_sprite: {fileID: 21300000, guid: e6aa2a5efddda2542ab182418a94d13a, type: 3}
+  turret_color: {r: 0.2264151, g: 0.2253471, b: 0.2253471, a: 1}
   projectile: {fileID: 11400000, guid: 78cbb2ae0478a1a499b8eea00548365b, type: 2}
   projectile_template: {fileID: 114150301673625108, guid: 115640a66cde11b4d904bcd7fcc95165,
     type: 3}

@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2570f3f89da62c64f9885a932285f2d2, type: 3}
   m_Name: CRSRapide
   m_EditorClassIdentifier: 
-  tower_name: CRS rapide
-  description: CRS rapide
+  tower_name: Le rapide
+  description: Ces sont premier jour en tant que CRS il est encore rapide
   damage: 1
   range: 2.3
   pv: 10
-  attack_speed: 0.6
+  attack_speed: 0.3
   ready_time: 0.1
   cost: 8
   base_sprite: {fileID: 21300000, guid: 02bc984ddc1354c4cb450bc36942f754, type: 3}
-  base_color: {r: 0.9922921, g: 1, b: 0.44117647, a: 1}
-  freezeRotation: 1
-  turret_sprite: {fileID: 21300000, guid: e6aa2a5efddda2542ab182418a94d13a, type: 3}
+  base_color: {r: 0.5993522, g: 0.6037736, b: 0.28764686, a: 1}
+  freezeRotation: 0
+  turret_sprite: {fileID: 21300002, guid: 02bc984ddc1354c4cb450bc36942f754, type: 3}
   turret_color: {r: 1, g: 0.93103445, b: 0, a: 1}
   projectile: {fileID: 11400000, guid: 0e73f492dc4305046adadb6024e80907, type: 2}
   projectile_template: {fileID: 114150301673625108, guid: 115640a66cde11b4d904bcd7fcc95165,
