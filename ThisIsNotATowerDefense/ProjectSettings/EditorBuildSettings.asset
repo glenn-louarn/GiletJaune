@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/credit.unity
     guid: a98cf042787b5544cade5dc1f15caa61
+  - enabled: 1
+    path: Assets/Scenes/finPartie.unity
+    guid: dc1a2c9a10582e345b6bb0751f843cbc
+  - enabled: 1
+    path: Assets/Scenes/finPartieWin.unity
+    guid: 5a37f52d7e1d3204b9ee60f1f6c56a97
   m_configObjects: {}

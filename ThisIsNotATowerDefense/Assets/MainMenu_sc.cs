@@ -20,4 +20,9 @@ public class MainMenu_sc : MonoBehaviour
     {
         SceneManager.LoadScene("Credit");
     }
+
+    public void retourAccueil()
+    {
+        SceneManager.LoadScene("Menu");
+    }   
 }

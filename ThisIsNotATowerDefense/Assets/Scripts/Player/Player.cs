@@ -49,7 +49,13 @@ public class Player : MonoBehaviour {
 	}
 
 	public void RemoveLives(int amount) {
-		AddLife(-amount);
+        AddLife(-amount);
+
+        if(lives <= 0)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("finPartie");
+        }
+ 
 	}
 
 	public void SetSelectedTower(TowerBehavior tower) {

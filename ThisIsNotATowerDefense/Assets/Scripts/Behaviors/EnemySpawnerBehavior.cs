@@ -24,8 +24,16 @@ public class EnemySpawnerBehavior : MonoBehaviour {
 	}
 
 	private void UpdateWaveText() {
-		wave_text.text = "Vague: " + (current_wave + 1);
-	}
+        if(current_wave < waves.Length)
+        {
+            wave_text.text = "Vague: " + (current_wave + 1);
+
+        }
+        else
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("finPartieWin");
+        }
+    }
 
 	private void SpawnEnemy() {
 		GameObject obj = GameObject.Instantiate(waves[current_wave].enemy_template.gameObject);
@@ -52,7 +60,7 @@ public class EnemySpawnerBehavior : MonoBehaviour {
 
 			if (enemies.Length == 0) {
 				active = true;
-				current_wave += 1;
+        	current_wave += 1;
 				current_count = 0;
 				UpdateWaveText();
 			}
