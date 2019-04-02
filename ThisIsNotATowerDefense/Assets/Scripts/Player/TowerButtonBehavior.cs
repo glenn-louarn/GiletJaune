@@ -45,7 +45,7 @@ public class TowerButtonBehavior : MonoBehaviour {
 		GameObject.Find("CostText").GetComponent<Text>().text = "Cout: " + tower.cost;
 		GameObject.Find("DamageText").GetComponent<Text>().text = "Dégât: " + tower.damage;
 		GameObject.Find("AttackSpeedText").GetComponent<Text>().text = "Vitesse Attaque: " + tower.attack_speed;
-		GameObject.Find("InfoText").GetComponent<Text>().text = "Info: \n" + tower.description;
+		GameObject.Find("InfoText").GetComponent<Text>().text = "Info: " + tower.description;
 		// TODO: SET "INFOS" TEXT
 	}
 
