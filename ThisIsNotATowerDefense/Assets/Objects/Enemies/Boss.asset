@@ -16,8 +16,8 @@ MonoBehaviour:
   degat: 4
   attaque_Speed: 1
   move_speed: 0.2
-  sprite: {fileID: 21300000, guid: 072181ad15793474ab1b40875bf2a553, type: 3}
+  sprite: {fileID: 21300000, guid: 2efdf4a57b74df647b977bd43c67475b, type: 3}
   size: 0.9
-  color: {r: 0.78431374, g: 0, b: 0, a: 1}
+  color: {r: 1, g: 1, b: 1, a: 1}
   gold: 25
   value: 10
